@@ -9,6 +9,7 @@ The engine is multiplatform (currently supporting Windows and Linux) and made co
 * [Blender](https://www.blender.org/)
 * [Object Oriented Input System](http://sourceforge.net/projects/wgois/)
 * [libRocket GUI](http://librocket.com/)
+* [SFML](http://www.sfml-dev.org/)
 
 The engine borrows several concepts out of the book [Game Engine Architecture](http://www.gameenginebook.com/) by Jason Gregory.
 
