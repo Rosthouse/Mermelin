@@ -45,7 +45,7 @@ configurations { "Debug", "Release" }
             ogre_home .. "/include/OIS",
             gamedev_libs .. "/bullet-2.80-rev2531/src",
             gamedev_libs .. "/SFML-1.6/include",
-            ogre_home .. "/boost",
+            ogre_home .. "/boost_1_47",
             gamedev_libs .. "/libRocket/Include"
         }
 

@@ -13,3 +13,5 @@ premake4.exe.back
 /ThesisMakefile
 /doc/
 Deployment/Windows/mermelin.exe
+.vs/
+UpgradeLog.htm
