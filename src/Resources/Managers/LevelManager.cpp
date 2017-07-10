@@ -7,17 +7,17 @@
 #include "Resources/Managers/LevelManager.h"
 using namespace CotopaxiEngine;
 
-template<> LevelManager* Ogre::Singleton<LevelManager>::msSingleton = 0;
+template<> LevelManager* Ogre::Singleton<LevelManager>::ms_Singleton = 0;
 
 LevelManager* LevelManager::getSingletonPtr()
 {
-    return msSingleton;
+    return ms_Singleton;
 }
 
 LevelManager& LevelManager::getSingleton()
 {
-    assert(msSingleton);
-    return (*msSingleton);
+    assert(ms_Singleton);
+    return (*ms_Singleton);
 }
 
 LevelManager::LevelManager()

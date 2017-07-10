@@ -7,17 +7,17 @@
 #include "Resources/Managers/AudioManager.h"
 using namespace CotopaxiEngine;
 
-template<> AudioManager *Ogre::Singleton<AudioManager>::msSingleton = 0;
+template<> AudioManager *Ogre::Singleton<AudioManager>::ms_Singleton = 0;
 
 AudioManager *AudioManager::getSingletonPtr()
 {
-    return msSingleton;
+    return ms_Singleton;
 }
 
 AudioManager &AudioManager::getSingleton()
 {
-    assert(msSingleton);
-    return (*msSingleton);
+    assert(ms_Singleton);
+    return (*ms_Singleton);
 }
 
 AudioManager::AudioManager()

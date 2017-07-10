@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "Modules/GUIModule.h"
 #include "Entities/Camera.h"
+#include "Rocket\Controls.h"
 
 using namespace CotopaxiEngine;
 
@@ -299,8 +300,7 @@ BaseComponent* GUIModule::getComponent(Entity* parent)
     return NULL;
 }
 
-void GUIModule::renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String& invocation, 
-        bool& ROCKET_UNUSED(skipThisInvocation))
+void GUIModule::renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String& invocation, bool& repeatThisInvocation)
 {
     if (queueGroupId == Ogre::RENDER_QUEUE_OVERLAY && Ogre::Root::getSingleton()
             .getRenderSystem()->_getViewport()->getOverlaysEnabled()) {
