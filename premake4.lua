@@ -43,7 +43,7 @@ configurations { "Debug", "Release" }
     	includedirs{
             ogre_home .. "/include/OGRE",
             ogre_home .. "/include/OIS",
-            gamedev_libs .. "/bullet-2.80-rev2531/src",
+            gamedev_libs .. "/bullet/src",
             gamedev_libs .. "/SFML-1.6/include",
             ogre_home .. "/boost_1_47",
             gamedev_libs .. "/libRocket/Include"
@@ -99,7 +99,7 @@ configuration "Debug"
     if os.is("windows") then
         libdirs {
             ogre_home .. "/lib/debug",
-            gamedev_libs .. "/bullet-2.80-rev2531/lib/Debug",
+            gamedev_libs .. "/bullet/bin",
             gamedev_libs .. "/cppunit/lib",
             gamedev_libs .. "/SFML-1.6/lib",
             ogre_home .. "/boost/lib/",
@@ -113,8 +113,8 @@ configuration "Debug"
             "OgrePaging_d",
             "OgreProperty_d",
             "OgreRTShaderSystem_d",
-            "BulletCollision_Debug",
-            "BulletDynamics_Debug",
+            "BulletCollision",
+            "BulletDynamics",
             "LinearMath_Debug",
             "sfml-system-s-d",
             "sfml-audio-s-d",
@@ -138,7 +138,7 @@ configuration "Release"
     if os.is("windows") then
         libdirs {
             ogre_home .. "/lib/release",
-            gamedev_libs .. "/bullet-2.80-rev2531/lib/Release",
+            gamedev_libs .. "/bullet/bin",
             gamedev_libs .. "/SFML-1.6/lib",
             ogre_home .. "/boost/lib/",
             gamedev_libs .. "/libRocket/bin"
