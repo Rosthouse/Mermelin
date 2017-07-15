@@ -20,15 +20,9 @@ end
 default("windows", "vs2012")
 default("linux", "gmake")
 
-solution "Thesis"
-project "Engine"
-kind "WindowedApp"
-language "C++"
 
-files { "headers/**.h", "src/**.cpp", "media/shaders/**.frag", "media/shaders/**.geom", "media/shaders/**.vert" }
-includedirs { "headers" }
-
-configurations { "Debug", "Release" }
+workspace "Thesis"
+    configurations { "Debug", "Release" }
     if os.is("windows") then
         configuration { "windows" }
 
@@ -91,10 +85,21 @@ configurations { "Debug", "Release" }
         buildoptions { "-std=c++0x"	}
     end
 
+
+project "Engine"
+    kind "WindowedApp"
+    language "C++"
+
+    files { "headers/**.h", "src/**.cpp", "media/shaders/**.frag", "media/shaders/**.geom", "media/shaders/**.vert" }
+    includedirs { "headers" }
+
+
+
 configuration "Debug"
     targetdir ("bin/debug")
     defines { "DEBUG" }
-    flags { "Symbols" }
+    -- flags { "Symbols" }
+    symbols "On"
 
     if os.is("windows") then
         libdirs {
