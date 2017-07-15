@@ -17,7 +17,7 @@ function default(osName, actionName)
     end
 end
 
-default("windows", "vs2012")
+default("windows", "vs2017")
 default("linux", "gmake")
 
 
@@ -35,12 +35,12 @@ workspace "Thesis"
     	boost_libs = os.getenv("BOOST_LIBS")
 
     	includedirs{
-            ogre_home .. "/include/OGRE",
-            ogre_home .. "/include/OIS",
-            gamedev_libs .. "/bullet-2.80-rev2531/src",
-            gamedev_libs .. "/SFML-1.6/include",
-            ogre_home .. "/boost_1_47",
-            gamedev_libs .. "/libRocket/Include"
+            "include/BOOST",
+            "include/OGRE",
+            "include/OIS",
+            "include/BULLET",
+            "include/SFML",
+            "include/LIBROCKET"
         }
 
         libdirs{ gamedev_libs .. "/SFML-1.6/extlibs/bin" }
@@ -60,13 +60,13 @@ workspace "Thesis"
             "/usr/lib/"
         }
 
-	includedirs {
-            "/usr/include/OGRE/",
-            "/usr/include/ois/",
-            "/usr/local/include/",
-            "/usr/local/include/bullet/",
-            "/usr/local/include/bullet/ConvexDecomposition",          
-	}
+        includedirs {
+                "/usr/include/OGRE/",
+                "/usr/include/ois/",
+                "/usr/local/include/",
+                "/usr/local/include/bullet/",
+                "/usr/local/include/bullet/ConvexDecomposition",          
+        }
 
         links {
             "OgreMain",
