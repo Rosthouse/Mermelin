@@ -104,8 +104,8 @@ configuration "Debug"
     if os.is("windows") then
         libdirs {
             ogre_home .. "/lib/debug",
-            gamedev_libs .. "/bullet-2.80-rev2531/lib",
-            gamedev_libs .. "/SFML-1.6/lib",
+            "libs/Debug/BULLET",
+            "libs/Debug/SFML",
             ogre_home .. "/boost_1_47/lib",
             gamedev_libs .. "/libRocket/Build/Debug"
         }
@@ -117,9 +117,9 @@ configuration "Debug"
             "OgrePaging_d",
             "OgreProperty_d",
             "OgreRTShaderSystem_d",
-            "BulletCollision_debug",
-            "BulletDynamics_debug",
-            "LinearMath_debug",
+            "BulletCollision",
+            "BulletDynamics",
+            "LinearMath",
             "sfml-system-s-d",
             "sfml-audio-s-d",
             "RocketCore",
