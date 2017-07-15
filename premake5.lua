@@ -96,9 +96,6 @@ project "Engine"
 
     files { "headers/**.h", "src/**.cpp", "media/shaders/**.frag", "media/shaders/**.geom", "media/shaders/**.vert" }
     includedirs { "headers" }
-    flags {"StaticRuntime"}
-
-
 
 configuration "Debug"
     targetdir ("bin/debug")
