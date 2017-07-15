@@ -103,10 +103,10 @@ configuration "Debug"
 
     if os.is("windows") then
         libdirs {
-            ogre_home .. "/lib/debug",
+            "libs/Debug/OGRE",
             "libs/Debug/BULLET",
             "libs/Debug/SFML",
-            ogre_home .. "/boost_1_47/lib",
+            "libs/extlibs/BOOST",
             gamedev_libs .. "/libRocket/Build/Debug"
         }
 		
