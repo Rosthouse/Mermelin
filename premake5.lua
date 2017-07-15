@@ -23,6 +23,7 @@ default("linux", "gmake")
 
 workspace "Thesis"
     configurations { "Debug", "Release" }
+    
     if os.is("windows") then
         configuration { "windows" }
 
@@ -34,7 +35,7 @@ workspace "Thesis"
     	boost_include = os.getenv("BOOST_INCLUDE")
     	boost_libs = os.getenv("BOOST_LIBS")
 
-    	includedirs{
+    	includedirs {
             "include/BOOST",
             "include/OGRE",
             "include/OIS",
@@ -43,7 +44,10 @@ workspace "Thesis"
             "include/LIBROCKET"
         }
 
-        libdirs{ gamedev_libs .. "/SFML-1.6/extlibs/bin" }
+        libdirs {
+            "libs/extlibs/SFML" ,
+            "libs/extlibs/BOOST"
+        }
         os.remove("Thesis.sdf")
         buildoptions { "/Zm500" }
     end
@@ -92,13 +96,13 @@ project "Engine"
 
     files { "headers/**.h", "src/**.cpp", "media/shaders/**.frag", "media/shaders/**.geom", "media/shaders/**.vert" }
     includedirs { "headers" }
+    flags {"StaticRuntime"}
 
 
 
 configuration "Debug"
     targetdir ("bin/debug")
     defines { "DEBUG" }
-    -- flags { "Symbols" }
     symbols "On"
 
     if os.is("windows") then
@@ -107,7 +111,7 @@ configuration "Debug"
             "libs/Debug/BULLET",
             "libs/Debug/SFML",
             "libs/extlibs/BOOST",
-            gamedev_libs .. "/libRocket/Build/Debug"
+            "libs/Debug/LIBROCKET"
         }
 		
         links {
@@ -127,7 +131,7 @@ configuration "Debug"
 			"RocketDebugger"
         }
 		
-        debugdir(ogre_home .. "/bin/debug")
+        debugdir("libs/Debug/OGRE")
     end
 
     if os.is("linux") then
