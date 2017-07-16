@@ -52,12 +52,12 @@ void AudioModule::setGlobalVolume(float volume)
         internalVolume = 0.0;
     }
 
-    sf::Listener::SetGlobalVolume(internalVolume);
+    sf::Listener::setGlobalVolume(internalVolume);
 }
 
 bool AudioModule::frameRenderingQueued(const Ogre::FrameEvent &evt)
 {
     Ogre::Vector3 position = ENGINE->getCamera()->getNode()->_getDerivedPosition();
-    sf::Listener::SetPosition(position.x, position.y, position.z);
+    sf::Listener::setPosition(position.x, position.y, position.z);
     return true;
 }

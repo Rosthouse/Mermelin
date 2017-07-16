@@ -25,7 +25,7 @@ bool AudioComponent::addSound(std::string soundName)
     if (audio->isLoaded()) {
         Ogre::Vector3 position = this->getParent()->getNode()->_getDerivedPosition();
 
-        audio->getAudio()->SetPosition(position.x, position.y, position.z);
+        audio->getAudio()->setPosition(position.x, position.y, position.z);
         audioList[soundName] = audio;
         return true;
     }
@@ -41,8 +41,8 @@ bool AudioComponent::play(std::string name, bool loop)
 {
     Audio* audioToPlay = audioList[name];
     if (audioToPlay != NULL) {
-        audioToPlay->getAudio()->SetLoop(loop);
-        audioToPlay->getAudio()->Play();
+        audioToPlay->getAudio()->setLoop(loop);
+        audioToPlay->getAudio()->play();
         return true;
     }
 
@@ -53,7 +53,7 @@ void AudioComponent::stop(std::string soundName)
 {
     Audio* audioToPlay = audioList[soundName];
     if (audioToPlay != NULL) {
-        audioToPlay->getAudio()->Pause();
+        audioToPlay->getAudio()->pause();
     }
 }
 
@@ -67,7 +67,7 @@ void AudioComponent::receiveEvent(Event* e)
 
 		for(;it!= audioList.end(); it++)
 		{
-			it->second->getAudio()->SetPosition(position.x, position.y, position.z);
+			it->second->getAudio()->setPosition(position.x, position.y, position.z);
 		}
 	}
 

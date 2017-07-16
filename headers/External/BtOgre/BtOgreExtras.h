@@ -103,7 +103,7 @@ namespace BtOgre
 
          @param indexCount The number of indices the buffer must hold. This
                 parameter is ignored if not using indices. */
-        void prepareHardwareBuffers(size_t vertexCount, size_t indexCount);
+        //void prepareHardwareBuffers(size_t vertexCount, size_t indexCount);
 
         /** Fills the hardware vertex and index buffers with data.
          @remarks

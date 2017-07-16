@@ -99,12 +99,12 @@ namespace CotopaxiEngine
 
         virtual void Run() {
             buffer = new sf::SoundBuffer();
-            if (!buffer->LoadFromFile(path)) {
+            if (!buffer->loadFromFile(path)) {
                 throw std::exception();
             }
             sound = new sf::Sound();
-            sound->SetBuffer(*buffer);
-            sound->Play();
+            sound->setBuffer(*buffer);
+            sound->play();
         }
     };
 

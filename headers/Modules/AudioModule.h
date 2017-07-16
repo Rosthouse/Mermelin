@@ -23,9 +23,7 @@ namespace CotopaxiEngine
     class PlaySound : private sf::Thread
     {
     public:
-
-        PlaySound(std::string path, bool loop)
-        : path(path), loop(loop) { }
+		PlaySound(std::string path, bool loop) : path(path), loop(loop), sf::Thread(&PlaySound::Run, this) {}
 
         virtual ~PlaySound() {
             delete sound;
@@ -33,7 +31,7 @@ namespace CotopaxiEngine
         }
 
         void play() {
-            Launch();
+            launch();
         }
 
         sf::Sound* getSound() const {
@@ -48,13 +46,13 @@ namespace CotopaxiEngine
 
         virtual void Run() {
             buffer = new sf::SoundBuffer();
-            if (!buffer->LoadFromFile(path)) {
+            if (!buffer->loadFromFile(path)) {
                 throw std::exception();
             }
             sound = new sf::Sound();
-            sound->SetBuffer(*buffer);
-            sound->SetLoop(loop);
-            sound->Play();
+            sound->setBuffer(*buffer);
+            sound->setLoop(loop);
+            sound->play();
         }
     };
 
@@ -67,14 +65,14 @@ namespace CotopaxiEngine
     public:
 
         PlayMusic(std::string path, bool loop)
-        : path(path), loop(loop) { }
+        : path(path), loop(loop), sf::Thread(&PlayMusic::Run, this) { }
 
         virtual ~PlayMusic() {
             delete music;
         }
 
         void play() {
-            Launch();
+            launch();
         }
 
         sf::Music* getMusic() const {
@@ -88,11 +86,11 @@ namespace CotopaxiEngine
 
         virtual void Run() {
             music = new sf::Music();
-            if (!music->OpenFromFile(path)) {
+            if (!music->openFromFile(path)) {
                 throw std::exception();
             }
-            music->SetLoop(loop);
-            music->Play();
+            music->setLoop(loop);
+            music->play();
         }
     };
 

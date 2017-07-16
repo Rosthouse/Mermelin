@@ -728,7 +728,7 @@ namespace BtOgre {
         createVertexDeclaration();
     }
 
-    void DynamicRenderable::prepareHardwareBuffers(size_t vertexCount,
+    /*void DynamicRenderable::prepareHardwareBuffers(size_t vertexCount,
             size_t indexCount)
     {
         // Prepare vertex buffer
@@ -803,7 +803,7 @@ namespace BtOgre {
             mRenderOp.indexData->indexCount = indexCount;
         }
     }
-
+	*/
     Real DynamicRenderable::getBoundingRadius(void) const
     {
         return Math::Sqrt(std::max(mBox.getMaximum().squaredLength(), mBox.getMinimum().squaredLength()));
@@ -897,7 +897,7 @@ namespace BtOgre {
     {
         int size = mPoints.size();
 
-        prepareHardwareBuffers(size, 0);
+        //prepareHardwareBuffers(size, 0);
 
         if (!size) {
             mBox.setExtents(Vector3::ZERO, Vector3::ZERO);

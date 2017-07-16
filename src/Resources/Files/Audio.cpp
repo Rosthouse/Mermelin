@@ -15,7 +15,7 @@ Audio::Audio(Ogre::ResourceManager* creator,
         MODE mode,
         bool isManual,
         Ogre::ManualResourceLoader *loader)
-: Ogre::Resource(creator, name, handle, group, isManual, loader)
+: Ogre::Resource(creator, name, handle, group, isManual, loader), sf::Thread(&Audio::Run, this)
 {
     createParamDictionary("Audio");
     this->mode = mode;
@@ -40,7 +40,7 @@ void Audio::loadImpl()
     stream->read(&bytes[0], bytes.size());
 
     sf::SoundBuffer* buffer = new sf::SoundBuffer();
-    buffer->LoadFromMemory(&bytes[0], bytes.size());
+    buffer->loadFromMemory(&bytes[0], bytes.size());
 
     sound = new sf::Sound(*buffer);
 }
